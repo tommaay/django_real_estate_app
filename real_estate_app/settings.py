@@ -1,4 +1,5 @@
 
+import dj_database_url
 from django.contrib.messages import constants as messages
 import os
 
@@ -15,7 +16,7 @@ SECRET_KEY = 'xhre80^u0igjvsia5dj%j(&5pds^y^$m**u2=7e7(b(s00lbkr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-real-estate-app.herokuapp.com/']
 
 
 # Application definition
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,3 +132,8 @@ MEDIA_URL = '/media/'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# Production DB Config
+# prettier-ignore
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)

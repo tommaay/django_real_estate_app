@@ -16,7 +16,7 @@ SECRET_KEY = 'xhre80^u0igjvsia5dj%j(&5pds^y^$m**u2=7e7(b(s00lbkr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-real-estate-app.herokuapp.com/']
+ALLOWED_HOSTS = ['django-real-estate-app.herokuapp.com']
 
 
 # Application definition
